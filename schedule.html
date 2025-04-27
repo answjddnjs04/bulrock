@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>여행 계획 앱</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/schedule.css">
+</head>
+
+<body>
+    <!-- 사이드바 -->
+    <div class="sidebar">
+        <a href="index.html" class="sidebar-btn">
+            <span>홈</span>
+        </a>
+    </div>
+    <div class="container">
+        <button onclick="history.back()" class="back-btn">이전</button>
+        <div class="content">
+            <div class="block-list" id="blockList">
+                <div class="block-list-header">
+                    <h2>블럭 목록</h2>
+                    <div class="search-container">
+                        <input type="text" id="block-search" placeholder="블럭 검색...">
+                    </div>
+                    <div class="tabs">
+                        <button class="tab active" data-category="all">전체</button>
+                        <button class="tab" data-category="숙소">숙소</button>
+                        <button class="tab" data-category="명소">명소</button>
+                        <button class="tab" data-category="식당">식당</button>
+                    </div>
+                </div>
+                <div class="block" draggable="true" id="block1" data-category="명소">
+                    <img src="https://via.placeholder.com/100" alt="사진1">
+                    <img src="https://via.placeholder.com/100" alt="사진2">
+                    <h3>99수영장</h3>
+                    <p class="hashtag">#수영 #휴식</p>
+                </div>
+                <div class="block" draggable="true" id="block2" data-category="숙소">
+                    <img src="https://via.placeholder.com/100" alt="사진1">
+                    <img src="https://via.placeholder.com/100" alt="사진2">
+                    <h3>99아침</h3>
+                    <p class="hashtag">#식사 #아침</p>
+                </div>
+            </div>
+            <div class="schedule-container">
+                <div class="schedule" id="schedule">
+                    <div class="schedule-header">
+                        <input type="text" id="day-name-input" placeholder="일차 이름">
+                        <div class="schedule-actions">
+                            <button id="remove-day-btn">제거</button>
+                            <button id="disable-settings-btn">중복 비활성화</button>
+                        </div>
+                    </div>
+                    <div id="schedule-items"></div>
+                    <div id="add-form" style="display: none;">
+                        <h3>새 일정 추가</h3>
+                        <label>이름: <input type="text" id="name-input"></label><br>
+                        <label>시작 시간: <input type="number" id="start-hour" min="0" max="23" placeholder="HH"> : <input
+                                type="number" id="start-minute" min="0" max="59" placeholder="MM"></label><br>
+                        <label>진행 시간: <input type="number" id="duration-hour" min="0" placeholder="시간"> 시간 <input
+                                type="number" id="duration-minute" min="0" placeholder="분"> 분</label><br>
+                        <label><input type="checkbox" id="unknown-duration"> 몰라</label><br>
+                        <button id="submit-btn">추가</button>
+                        <button id="cancel-btn">취소</button>
+                    </div>
+                </div>
+                <div class="day-tabs">
+                    <button class="day-tab active" data-day="1" draggable="true">1일차</button>
+                    <button class="add-day-btn">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="disable-modal" style="display: none;">
+        <h3>중복 비활성화</h3>
+        <div id="disable-options"></div>
+        <button id="save-disable-btn">저장</button>
+    </div>
+    <script src="js/schedule.js"></script>
+    <script>(function () {function c() {var b = a.contentDocument || a.contentWindow.document; if (b) {var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9366a37b3bce507f',t:'MTc0NTY3NjM2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d)} } if (document.body) {var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else {var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) {e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c())}} } })();</script>
+</body>
+
+</html>
